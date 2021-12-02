@@ -24,7 +24,7 @@ function displayOnScreen(element) {
   const checkbox = document.createElement('input');
   const br = document.createElement('br');
   const image = document.createElement('img');
-  image.setAttribute('src', 'icons/delete.png');
+  image.setAttribute('src', 'icons/delete.PNG');
   image.style.width = '1rem';
   image.style.float = 'right';
   image.style.marginTop = '7px';
