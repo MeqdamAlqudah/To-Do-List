@@ -1,8 +1,9 @@
 import 'lodash';
 import './style.css';
+import elementChanges from './check.js';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
-let title = JSON.parse(localStorage.getItem('title') || '');
+let title = JSON.parse(localStorage.getItem('title'));
 if (!ToDoArray.length) {
   document.querySelector('.Activity-list').classList.add('hidden');
 } else {
@@ -41,21 +42,10 @@ function displayOnScreen(element) {
   input.value = element.description;
 
   label.style.marginLeft = '1rem';
-  checkbox.addEventListener('click', () => {
-    if (input.style.webkitTextDecorationLine !== 'line-through') {
-      input.style.webkitTextDecorationLine = 'line-through';
-      input.style.textDecorationLine = 'line-through';
-      element.completed = true;
-      input.style.color = '#616275';
-      li.classList.add('remove');
-    } else {
-      input.style.webkitTextDecorationLine = 'none';
-      input.style.textDecorationLine = 'none';
-      element.completed = false;
-      input.style.color = 'black';
-      li.classList.remove('remove');
-    }
-  });
+  const obj = {
+    checkbox, input, element, li, ToDoArray,
+  };
+  elementChanges(obj);
   li.appendChild(checkbox);
   li.appendChild(label);
   li.appendChild(br);
