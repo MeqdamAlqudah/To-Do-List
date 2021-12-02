@@ -27,7 +27,6 @@ function displayOnScreen(element) {
   image.style.width = '1rem';
   image.style.float = 'right';
   image.style.marginTop = '7px';
-
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('name', 'check');
   li.style.padding = '9px';
