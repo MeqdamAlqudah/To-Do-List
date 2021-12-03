@@ -1,6 +1,7 @@
 import 'lodash';
 import './style.css';
 import elementChanges from './check.js';
+import icon from './delete.png';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
 let title = JSON.parse(localStorage.getItem('title'));
@@ -24,7 +25,7 @@ function displayOnScreen(element) {
   const checkbox = document.createElement('input');
   const br = document.createElement('br');
   const image = document.createElement('img');
-  image.setAttribute('src', 'icons/delete.PNG');
+  image.setAttribute('src', icon);
   image.style.width = '1rem';
   image.style.float = 'right';
   image.style.marginTop = '7px';
