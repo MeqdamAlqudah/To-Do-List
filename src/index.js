@@ -1,10 +1,10 @@
 import 'lodash';
 import './style.css';
-import elementChanges from './check.js';
 import icon from './delete.png';
 import Add from './add.js';
 import edit from './editDes.js';
 import removeAll from './remove.js';
+import elementChanges from './check.js';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
 let title = JSON.parse(localStorage.getItem('title'));
@@ -35,9 +35,16 @@ const displayOnScreen = (element) => {
   input.setAttribute('type', 'text');
   const label = document.createElement('label');
   label.setAttribute('for', 'check');
-  const library = { input, element, ToDoArray };
+  const library = { input, element };
   edit(library);
   label.style.marginLeft = '1rem';
+  if (element.completed && (ToDoArray.includes(element))) {
+    checkbox.checked = true;
+    input.style.webkitTextDecorationLine = 'line-through';
+    input.style.textDecorationLine = 'line-through';
+    input.style.color = '#616275';
+    li.classList.add('remove');
+  }
   const obj = {
     checkbox, input, element, li, ToDoArray,
   };
@@ -48,13 +55,11 @@ const displayOnScreen = (element) => {
   label.appendChild(input);
   label.appendChild(image);
   ul.appendChild(li);
-  ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
   image.addEventListener('click', () => {
     ToDoArray = ToDoArray.filter((el) => (el !== element));
-    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
-    console.log('After removing one element', ToDoArray, element);
+    element.completed = true;
     ul.removeChild(li);
-    console.log(localStorage);
+    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
   });
 };
 
@@ -64,10 +69,11 @@ if (ToDoArray) {
     displayOnScreen(ToDoArray[i]);
   }
 }
-const objects = { ToDoArray, CreateOb, displayOnScreen };
+const objects = { CreateOb, displayOnScreen, ToDoArray };
 Add(objects);
 document.querySelector('#whatToDo').addEventListener('change', () => {
   title = document.querySelector('#whatToDo').value;
+  localStorage.setItem('title', JSON.stringify(title));
 });
-console.log('befor access the remove function', ToDoArray);
+
 removeAll(displayOnScreen, ToDoArray);
