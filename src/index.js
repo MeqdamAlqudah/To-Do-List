@@ -3,6 +3,7 @@ import './style.css';
 import elementChanges from './check.js';
 import icon from './delete.png';
 import removeAll from './remove.js';
+import Add from './add.js';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
 let title = JSON.parse(localStorage.getItem('title'));
@@ -68,17 +69,8 @@ if (ToDoArray) {
     displayOnScreen(ToDoArray[i]);
   }
 }
-document.querySelector('#Add').addEventListener('change', () => {
-  ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
-  const index = ToDoArray.length + 1;
-  const description = document.querySelector('#Add').value;
-  const obj = { description, index };
-  ToDoArray.push(new CreateOb(obj));
-  document.querySelector('#Add').value = '';
-  document.querySelector('.Activity-list').classList.remove('hidden');
-  displayOnScreen(ToDoArray[index - 1], index);
-  localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
-});
+const objects = { ToDoArray, CreateOb, displayOnScreen };
+Add(objects);
 document.querySelector('#whatToDo').addEventListener('change', () => {
   title = document.querySelector('#whatToDo').value;
   localStorage.setItem('title', JSON.stringify(title));
