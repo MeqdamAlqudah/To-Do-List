@@ -62,6 +62,7 @@ function displayOnScreen(element) {
 }
 if (ToDoArray) {
   for (let i = 0; i < ToDoArray.length; i += 1) {
+    ToDoArray[i].index = i + 1;
     displayOnScreen(ToDoArray[i]);
   }
 }
