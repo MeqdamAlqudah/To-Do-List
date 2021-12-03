@@ -60,13 +60,16 @@ function displayOnScreen(element) {
     localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
   });
 }
+
 if (ToDoArray) {
   for (let i = 0; i < ToDoArray.length; i += 1) {
     ToDoArray[i].index = i + 1;
+    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
     displayOnScreen(ToDoArray[i]);
   }
 }
 document.querySelector('#Add').addEventListener('change', () => {
+  ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
   const index = ToDoArray.length + 1;
   const description = document.querySelector('#Add').value;
   const obj = { description, index };
