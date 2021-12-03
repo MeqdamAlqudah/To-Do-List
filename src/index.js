@@ -35,7 +35,7 @@ const displayOnScreen = (element) => {
   input.setAttribute('type', 'text');
   const label = document.createElement('label');
   label.setAttribute('for', 'check');
-  const library = { input, element };
+  const library = { input, element, ToDoArray };
   edit(library);
   label.style.marginLeft = '1rem';
   if (element.completed && (ToDoArray.includes(element))) {
