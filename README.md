@@ -7,7 +7,7 @@ To Do List Application
 
 1-Add items to the to do list
 2-Checkbox input form 
-![screenshot](./Capture.png)
+![screenshot](./Capture.PNG)
 
 ## Built With
 
