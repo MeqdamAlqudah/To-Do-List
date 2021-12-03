@@ -2,8 +2,9 @@ import 'lodash';
 import './style.css';
 import elementChanges from './check.js';
 import icon from './delete.png';
-import removeAll from './remove.js';
 import Add from './add.js';
+import edit from './editDes.js';
+import removeAll from './remove.js';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
 let title = JSON.parse(localStorage.getItem('title'));
@@ -14,13 +15,9 @@ if (!ToDoArray.length) {
 }
 document.querySelector('#whatToDo').value = title;
 
-function CreateOb({ description, index }) {
-  this.description = description;
-  this.completed = false;
-  this.index = index;
-}
+const CreateOb = ({ description, index }) => ({ description, index, completed: false });
 
-function displayOnScreen(element) {
+const displayOnScreen = (element) => {
   const ul = document.querySelector('.form_');
   const li = document.createElement('li');
   li.classList.add('toDo');
@@ -38,12 +35,8 @@ function displayOnScreen(element) {
   input.setAttribute('type', 'text');
   const label = document.createElement('label');
   label.setAttribute('for', 'check');
-  input.addEventListener('change', () => {
-    element.description = input.value;
-    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
-  });
-  input.value = element.description;
-
+  const library = { input, element, ToDoArray };
+  edit(library);
   label.style.marginLeft = '1rem';
   const obj = {
     checkbox, input, element, li, ToDoArray,
@@ -55,17 +48,19 @@ function displayOnScreen(element) {
   label.appendChild(input);
   label.appendChild(image);
   ul.appendChild(li);
+  ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
   image.addEventListener('click', () => {
-    ToDoArray = ToDoArray.filter((el) => el !== element);
-    ul.removeChild(li);
+    ToDoArray = ToDoArray.filter((el) => (el !== element));
     localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
+    console.log('After removing one element', ToDoArray, element);
+    ul.removeChild(li);
+    console.log(localStorage);
   });
-}
+};
 
 if (ToDoArray) {
   for (let i = 0; i < ToDoArray.length; i += 1) {
     ToDoArray[i].index = i + 1;
-    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
     displayOnScreen(ToDoArray[i]);
   }
 }
@@ -73,7 +68,6 @@ const objects = { ToDoArray, CreateOb, displayOnScreen };
 Add(objects);
 document.querySelector('#whatToDo').addEventListener('change', () => {
   title = document.querySelector('#whatToDo').value;
-  localStorage.setItem('title', JSON.stringify(title));
 });
-
+console.log('befor access the remove function', ToDoArray);
 removeAll(displayOnScreen, ToDoArray);
