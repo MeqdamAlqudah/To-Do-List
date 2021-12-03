@@ -2,6 +2,7 @@ import 'lodash';
 import './style.css';
 import elementChanges from './check.js';
 import icon from './delete.png';
+import removeAll from './remove.js';
 
 let ToDoArray = JSON.parse(localStorage.getItem('ToDoArray') || '[]');
 let title = JSON.parse(localStorage.getItem('title'));
@@ -78,18 +79,5 @@ document.querySelector('#whatToDo').addEventListener('change', () => {
   title = document.querySelector('#whatToDo').value;
   localStorage.setItem('title', JSON.stringify(title));
 });
-document.querySelector('#removeAll').addEventListener('click', () => {
-  ToDoArray = ToDoArray.filter((el) => el.completed === false);
-  document.querySelector('.form_').innerHTML = '';
-  if (ToDoArray.length) {
-    for (let i = 0; i < ToDoArray.length; i += 1) {
-      displayOnScreen(ToDoArray[i]);
-    }
-  }
-  if (!ToDoArray.length) {
-    document.querySelector('.Activity-list').classList.add('hidden');
-  } else {
-    document.querySelector('.Activity-list').classList.remove('hidden');
-  }
-  localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
-});
+
+removeAll(displayOnScreen, ToDoArray);
