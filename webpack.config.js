@@ -20,7 +20,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/webpack-demo/',
+    publicPath: '/To-Do-List/',
     clean: true,
   },
   module: {
