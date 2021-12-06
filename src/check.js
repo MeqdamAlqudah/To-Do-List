@@ -8,7 +8,7 @@ const elementChanges = ({
       element.completed = true;
       input.style.color = '#616275';
       li.classList.add('remove');
-    } else {
+    } else if (element.completed && (ToDoArray.includes(element))) {
       input.style.webkitTextDecorationLine = 'none';
       input.style.textDecorationLine = 'none';
       element.completed = false;
