@@ -3,7 +3,7 @@ import icon from './delete.png';
 require('lodash');
 
 require('./style.css');
-
+const { removeOne } = require('./removeOne.js');
 const { edit } = require('./editDes.js');
 const { elementChanges } = require('./check.js');
 const { removeAll } = require('./remove.js');
@@ -57,6 +57,10 @@ const displayOnScreen = (element) => {
   const obj = {
     checkbox, input, element, li, ToDoArray, image, ul,
   };
+  const objTwo = {
+    element, li, ToDoArray, image, ul,
+  };
+  removeOne(objTwo);
   elementChanges(obj);
 };
 if (ToDoArray) {
