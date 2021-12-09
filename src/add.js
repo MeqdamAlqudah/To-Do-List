@@ -11,4 +11,4 @@ const Add = ({ CreateOb, displayOnScreen, ToDoArray }) => {
   });
 };
 
-export default Add;
+exports.Add = Add;

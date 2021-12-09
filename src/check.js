@@ -1,6 +1,13 @@
 const elementChanges = ({
-  checkbox, input, element, li, ToDoArray,
+  checkbox, input, element, li, ToDoArray, image, ul,
 }) => {
+  image.addEventListener('click', () => {
+    ToDoArray = ToDoArray.filter((el) => (el !== element));
+    element.completed = true;
+    ul.removeChild(li);
+    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
+  });
+
   checkbox.addEventListener('click', () => {
     if (!element.completed) {
       input.style.webkitTextDecorationLine = 'line-through';
@@ -8,7 +15,7 @@ const elementChanges = ({
       element.completed = true;
       input.style.color = '#616275';
       li.classList.add('remove');
-    } else if (element.completed && (ToDoArray.includes(element))) {
+    } else {
       input.style.webkitTextDecorationLine = 'none';
       input.style.textDecorationLine = 'none';
       element.completed = false;
@@ -19,4 +26,4 @@ const elementChanges = ({
   });
 };
 
-export default elementChanges;
+exports.elementChanges = elementChanges;
