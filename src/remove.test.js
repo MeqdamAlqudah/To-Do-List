@@ -19,7 +19,6 @@ test('should remove All completed items', () => {
   document.querySelector('#Add').value = 'hi';
   const event = new Event('change');
   document.querySelector('#Add').dispatchEvent(event);
-
   const { displayOnScreen, ToDoArray } = objects;
   ToDoArray.forEach((element) => {
     element.completed = true;
