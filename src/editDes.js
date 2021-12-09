@@ -6,4 +6,4 @@ const edit = ({ input, element, ToDoArray }) => {
   input.value = element.description;
 };
 
-export default edit;
+exports.edit = edit;

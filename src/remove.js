@@ -17,4 +17,4 @@ const removeAll = (displayOnScreen, ToDoArray) => {
   });
 };
 
-export default removeAll;
+exports.removeAll = removeAll;
