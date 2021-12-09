@@ -19,9 +19,14 @@ test('should remove All completed items', () => {
   document.querySelector('#Add').value = 'hi';
   const event = new Event('change');
   document.querySelector('#Add').dispatchEvent(event);
+
   const { displayOnScreen, ToDoArray } = objects;
   ToDoArray.forEach((element) => {
     element.completed = true;
   });
-
+  removeAll(displayOnScreen, ToDoArray);
+  const eventTwo = new Event('click');
+  document.querySelector('#removeAll').dispatchEvent(eventTwo);
+  const list = document.querySelector('.form_');
+  expect(list.childNodes).toHaveLength(0);
 });
