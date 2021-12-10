@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1639123973645" clover="3.2.0">
+  <project timestamp="1639123973646" name="All files">
+    <metrics statements="37" coveredstatements="37" conditionals="4" coveredconditionals="4" methods="10" coveredmethods="10" elements="51" coveredelements="51" complexity="0" loc="37" ncloc="37" packages="1" files="4" classes="4"/>
+    <file name="add.js" path="C:\Users\HFC\Desktop\Microverse-projects\To-Do-List\src\add.js">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="2" count="3" type="stmt"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="4" type="stmt"/>
+      <line num="5" count="4" type="stmt"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="9" count="4" type="stmt"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+    </file>
+    <file name="editDes.js" path="C:\Users\HFC\Desktop\Microverse-projects\To-Do-List\src\editDes.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="1" count="4" type="stmt"/>
+      <line num="2" count="8" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="6" count="8" type="stmt"/>
+      <line num="9" count="4" type="stmt"/>
+    </file>
+    <file name="remove.js" path="C:\Users\HFC\Desktop\Microverse-projects\To-Do-List\src\remove.js">
+      <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+    </file>
+    <file name="removeOne.js" path="C:\Users\HFC\Desktop\Microverse-projects\To-Do-List\src\removeOne.js">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

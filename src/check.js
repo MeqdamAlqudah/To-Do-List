@@ -1,13 +1,6 @@
 const elementChanges = ({
-  checkbox, input, element, li, ToDoArray, image, ul,
+  checkbox, input, element, li, ToDoArray,
 }) => {
-  image.addEventListener('click', () => {
-    ToDoArray = ToDoArray.filter((el) => (el !== element));
-    element.completed = true;
-    ul.removeChild(li);
-    localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
-  });
-
   checkbox.addEventListener('click', () => {
     if (!element.completed) {
       input.style.webkitTextDecorationLine = 'line-through';
