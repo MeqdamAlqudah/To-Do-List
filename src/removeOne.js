@@ -6,6 +6,7 @@ const removeOne = ({
     element.completed = true;
     ul.removeChild(li);
     localStorage.setItem('ToDoArray', JSON.stringify(ToDoArray));
+    window.location.reload();
   });
 };
 
